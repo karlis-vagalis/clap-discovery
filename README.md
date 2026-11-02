@@ -34,6 +34,15 @@ demo self list (alias: ls) - Display runnable command paths as a flat list.
 demo self tree - Display all visible commands as a tree.
 ```
 
+## Why?
+
+I write a lot of CLI tools in Rust, and pretty much all of them use
+[clap](https://docs.rs/clap), because it's the best. I also want AI agents to be
+able to use my tools, so I kept adding `self tree` and `self list` commands to
+help them figure out what's available.
+
+Then I got tired of copying the same code into every project. So now it's a crate.
+
 ## Add to a project
 
 ```sh
