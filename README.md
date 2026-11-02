@@ -1,7 +1,6 @@
 # clap-discovery
 
-Self-discovery for [clap](https://docs.rs/clap) CLIs: print a command **tree**
-or a flat **list of command paths** so people and agents can find what a tool does.
+Slap this baby onto your existing clap CLI for automagic, agent-friendly command discoverability.
 
 Reusable utilities for inspecting clap commands and arguments. No async runtime,
 application configuration, or application-specific error types required.
