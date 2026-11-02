@@ -1,0 +1,21 @@
+[package]
+name = "clap-discovery"
+version = "0.0.0"
+edition = "2024"
+description = "Tree and flat-list self-discovery for clap command-line applications"
+license = "MIT"
+repository = "https://github.com/karlis-vagalis/clap-discovery"
+readme = "README.md"
+keywords = ["clap", "cli", "discovery", "tree", "agents"]
+categories = ["command-line-interface"]
+
+[features]
+default = []
+derive = ["clap/derive"]
+
+[dependencies]
+clap = "4.6.7"
+
+[[example]]
+name = "discover"
+required-features = ["derive"]
