@@ -6,17 +6,41 @@ or a flat **list of command paths** so people and agents can find what a tool do
 Reusable utilities for inspecting clap commands and arguments. No async runtime,
 application configuration, or application-specific error types required.
 
-## Add to a project
+## Example
 
-Once published to crates.io:
+```sh
+cargo run --features derive --example discover -- self tree
+cargo run --features derive --example discover -- self list
+cargo run --features derive --example discover -- self ls
+```
+
+Tree:
+
+```text
+demo
+├── account - Manage accounts
+│   ├── fetch <ACCOUNT_ID> - Fetch an account
+│   └── list (alias: ls) - List accounts
+└── self - Inspect this CLI without running application logic
+    ├── list (alias: ls) - Display runnable command paths as a flat list.
+    └── tree - Display all visible commands as a tree.
+```
+
+List:
+
+```text
+demo account fetch <ACCOUNT_ID> - Fetch an account
+demo account list (alias: ls) - List accounts
+demo self list (alias: ls) - Display runnable command paths as a flat list.
+demo self tree - Display all visible commands as a tree.
+```
+
+## Add to a project
 
 ```sh
 cargo add clap-discovery
 cargo add clap
 ```
-
-For local development before publication, use
-`cargo add clap-discovery --path /path/to/clap-discovery` instead.
 
 The default feature set is empty: builder-only consumers do not need proc macros.
 `Discovery` remains available as a plain format enum without any features.
@@ -126,35 +150,6 @@ renderer.write(&command, Discovery::List, &mut buffer).unwrap();
 
 `Renderer` also provides `list`, `render`, `write`, and `print`.
 The free functions and `Discovery` methods retain their default behavior.
-
-## Example
-
-```sh
-cargo run --features derive --example discover -- self tree
-cargo run --features derive --example discover -- self list
-cargo run --features derive --example discover -- self ls
-```
-
-Tree:
-
-```text
-demo
-├── account - Manage accounts
-│   ├── fetch <ACCOUNT_ID> - Fetch an account
-│   └── list (alias: ls) - List accounts
-└── self - Inspect this CLI without running application logic
-    ├── list (alias: ls) - Display runnable command paths as a flat list.
-    └── tree - Display all visible commands as a tree.
-```
-
-List:
-
-```text
-demo account fetch <ACCOUNT_ID> - Fetch an account
-demo account list (alias: ls) - List accounts
-demo self list (alias: ls) - Display runnable command paths as a flat list.
-demo self tree - Display all visible commands as a tree.
-```
 
 ## Output behavior
 
