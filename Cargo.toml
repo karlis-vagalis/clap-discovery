@@ -14,7 +14,7 @@ default = []
 derive = ["clap/derive"]
 
 [dependencies]
-clap = "4.6.7"
+clap = "4.3.14"
 
 [[example]]
 name = "discover"
